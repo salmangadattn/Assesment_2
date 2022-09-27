@@ -1,6 +1,6 @@
-public class BOI extends Bank{
+public class BOI extends Bank {
 
-    private double rateOfInterest = 7.3;
+    private final double rateOfInterest = 7.3;
 
     public BOI(String accountNumber, String name, AccountType accountType) {
         super(accountNumber, name, "BOI", accountType);
@@ -10,9 +10,9 @@ public class BOI extends Bank{
         return "Bank{" +
                 "accountNumber='" + accountNumber + '\'' +
                 ", name='" + name + '\'' +
-                ", bankName= 'BOI'"+
+                ", bankName= 'BOI'" +
                 ", accountType=" + accountType +
-                ", rateOfInterest="+rateOfInterest+"%"+
+                ", rateOfInterest=" + rateOfInterest + "%" +
                 ", accountOpeningDate=" + accountOpeningDate +
                 ", balance=" + balance +
                 '}';

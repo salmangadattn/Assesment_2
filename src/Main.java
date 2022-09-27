@@ -1,5 +1,3 @@
-import javax.sound.midi.Soundbank;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,13 +11,13 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
 
-        do{
+        do {
             System.out.println("*********  Welcome to bank Portal ***********");
 
             System.out.println("Choose Service \n 1.Open account \n 2.UserDetails \n 3.AllUserDetails \n 4.Exit");
             int serviceId = sc.nextInt();
 
-            if(serviceId==1){
+            if (serviceId == 1) {
                 System.out.println("Choose bank to open an account ");
                 System.out.println(" 1.SBI \n 2.ICICI \n 3.BOI \n Choose(1-3)");
                 int bankId = sc.nextInt();
@@ -37,24 +35,24 @@ public class Main {
                 int accountTypeId = sc.nextInt();
 
                 AccountType accounType;
-                if(accountTypeId==1){
+                if (accountTypeId == 1) {
                     accounType = AccountType.CURRENT;
-                }else
-                    accounType=AccountType.SAVINGS;
+                } else
+                    accounType = AccountType.SAVINGS;
 
-                switch (bankId){
+                switch (bankId) {
                     case 1:
-                        SBI newSBIAccount = new SBI(acNumber,userName,accounType);
+                        SBI newSBIAccount = new SBI(acNumber, userName, accounType);
                         userBankDetails.add(newSBIAccount);
                         System.out.println(newSBIAccount.getDetails());
                         break;
                     case 2:
-                        ICICI newICICIAccount = new ICICI(acNumber,userName,accounType);
+                        ICICI newICICIAccount = new ICICI(acNumber, userName, accounType);
                         userBankDetails.add(newICICIAccount);
                         System.out.println(newICICIAccount.getDetails());
                         break;
                     case 3:
-                        BOI newBOIAccount = new BOI(acNumber,userName,accounType);
+                        BOI newBOIAccount = new BOI(acNumber, userName, accounType);
                         userBankDetails.add(newBOIAccount);
                         System.out.println(newBOIAccount.getDetails());
                         break;
@@ -62,7 +60,7 @@ public class Main {
                         System.out.println("Provide valid details");
 
                 }
-            }else if (serviceId==2){
+            } else if (serviceId == 2) {
                 System.out.println("*** choose account services ****");
                 System.out.println(" 1.Deposit \n 2. Withdraw \n 3.details \n Choose(1-3)");
 
@@ -75,23 +73,23 @@ public class Main {
 
                 Bank userBank = new Bank();
                 boolean found = true;
-                for(Bank bank:userBankDetails){
+                for (Bank bank : userBankDetails) {
                     System.out.println(bank.accountNumber);
                     System.out.println(accNumber);
-                    if(bank.accountNumber.equals(accNumber)){
+                    if (bank.accountNumber.equals(accNumber)) {
                         System.out.println("yes acccount exists");
-                        userBank=bank;
-                        found=false;
+                        userBank = bank;
+                        found = false;
                         break;
                     }
                 }
-                if (found){
+                if (found) {
                     System.out.println("No account exists with given account number");
                     continue;
                 }
 
 
-                switch (utilityId){
+                switch (utilityId) {
                     case 1:
                         System.out.println("Enter amount:");
                         double depositAmount = sc.nextDouble();
@@ -108,20 +106,19 @@ public class Main {
                     default:
                         System.out.println("Enter valid service number");
                 }
-            } else if (serviceId==3) {
+            } else if (serviceId == 3) {
 
-                for(Bank bank:userBankDetails){
+                for (Bank bank : userBankDetails) {
                     System.out.println(bank.getDetails());
                 }
 
-            }else if (serviceId==4){
+            } else if (serviceId == 4) {
                 break;
-            }
-            else{
+            } else {
                 System.out.println("Enter valid input");
                 continue;
             }
-        }while (userBankDetails.size()<=20);
+        } while (userBankDetails.size() <= 20);
 
     }
 }

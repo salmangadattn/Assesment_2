@@ -1,4 +1,4 @@
-public class ICICI extends Bank{
+public class ICICI extends Bank {
 
     private double rateOfInterest;
 
@@ -10,9 +10,9 @@ public class ICICI extends Bank{
         return "Bank{" +
                 "accountNumber='" + accountNumber + '\'' +
                 ", name='" + name + '\'' +
-                ", bankName= 'ICICI'"+
+                ", bankName= 'ICICI'" +
                 ", accountType=" + accountType +
-                ", rateOfInterest="+rateOfInterest+"%"+
+                ", rateOfInterest=" + rateOfInterest + "%" +
                 ", accountOpeningDate=" + accountOpeningDate +
                 ", balance=" + balance +
                 '}';

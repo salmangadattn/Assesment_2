@@ -1,4 +1,4 @@
 public enum AccountType {
     SAVINGS,
-    CURRENT;
+    CURRENT
 }

@@ -17,16 +17,16 @@ public class Bank {
 
     protected double balance;
 
-    public Bank(){
+    public Bank() {
 
     }
 
-    public Bank(String accountNumber, String name,String bankName, AccountType accountType) {
+    public Bank(String accountNumber, String name, String bankName, AccountType accountType) {
         this.accountNumber = accountNumber;
         this.name = name;
-        this.bankName=bankName;
+        this.bankName = bankName;
         this.accountType = accountType;
-        this.balance=0;
+        this.balance = 0;
         this.accountOpeningDate = LocalDateTime.now();
     }
 
@@ -41,36 +41,36 @@ public class Bank {
                 '}';
     }
 
-    public double getBalance(){
+    public double getBalance() {
         return balance;
     }
 
-    public void deposit(double amount){
-        if(amount>0){
-            balance = balance+amount;
-            logTransaction(Status.DEPOSIT,amount);
-            System.out.println("Successfull....!!! your total balance amount is : "+balance);
-        }else
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance = balance + amount;
+            logTransaction(Status.DEPOSIT, amount);
+            System.out.println("Successfull....!!! your total balance amount is : " + balance);
+        } else
             System.out.println("Please enter valid amount");
     }
 
-    public void withdraw(double amount){
-        if(amount > balance)
+    public void withdraw(double amount) {
+        if (amount > balance)
             throw new InsufficientAmountException("Opps Insufficient amount in your bank");
         else {
-            balance = balance-amount;
-            logTransaction(Status.WITHDRAW,amount);
-            System.out.println("Amount "+amount+" deducted. Your total balance is : "+balance);
+            balance = balance - amount;
+            logTransaction(Status.WITHDRAW, amount);
+            System.out.println("Amount " + amount + " deducted. Your total balance is : " + balance);
         }
     }
 
     public void logTransaction(Status status,
-                               double variableAmount){
+                               double variableAmount) {
 
         String data = getTransactionDetails(status, variableAmount);
 
         try {
-            FileWriter myWriter = new FileWriter("src/logFiles/"+bankName+"_logs",true);
+            FileWriter myWriter = new FileWriter("src/logFiles/" + bankName + "_logs", true);
             BufferedWriter bufferedWriter = new BufferedWriter(myWriter);
             bufferedWriter.newLine();
             bufferedWriter.write(data);
@@ -81,14 +81,14 @@ public class Bank {
 
     }
 
-    public String getTransactionDetails(Status status,double variableAmount){
-        return "Transaction as on date : "+LocalDateTime.now()+
-                " { AccountNumber : "+accountNumber+
-                ", Name : "+name+
-                ", accountType : "+accountType+
-                ", statusType : "+status+
-                ", variableAmount : "+variableAmount+
-                ", currentBalance : "+balance + "}";
+    public String getTransactionDetails(Status status, double variableAmount) {
+        return "Transaction as on date : " + LocalDateTime.now() +
+                " { AccountNumber : " + accountNumber +
+                ", Name : " + name +
+                ", accountType : " + accountType +
+                ", statusType : " + status +
+                ", variableAmount : " + variableAmount +
+                ", currentBalance : " + balance + "}";
 
     }
 }
