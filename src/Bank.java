@@ -56,7 +56,7 @@ public class Bank {
 
     public void withdraw(double amount){
         if(amount > balance)
-            System.out.println("");
+            throw new InsufficientAmountException("Opps Insufficient amount in your bank");
         else {
             balance = balance-amount;
             logTransaction(Status.WITHDRAW,amount);

@@ -1,0 +1,5 @@
+
+Transaction as on date : 2022-09-28T00:07:25.463857363 { AccountNumber : 1234, Name : salman, accountType : CURRENT, statusType : DEPOSIT, variableAmount : 20000.0, currentBalance : 20000.0}
+Transaction as on date : 2022-09-28T00:07:37.152453083 { AccountNumber : 1234, Name : salman, accountType : CURRENT, statusType : DEPOSIT, variableAmount : 20.0, currentBalance : 20020.0}
+Transaction as on date : 2022-09-28T00:11:52.884734603 { AccountNumber : 1234, Name : salman, accountType : CURRENT, statusType : DEPOSIT, variableAmount : 1234.0, currentBalance : 1234.0}
+Transaction as on date : 2022-09-28T00:12:10.715294196 { AccountNumber : 1234, Name : salman, accountType : CURRENT, statusType : DEPOSIT, variableAmount : 200.0, currentBalance : 1434.0}
